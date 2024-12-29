@@ -8,8 +8,10 @@ const router = express.Router()
  * @swagger
  * /api/upload:
  *   post:
+ *     tags:
+ *       - File Upload
  *     summary: Upload a file
- *     description: Uploads a file and returns its name and extension
+ *     description: Uploads a file and returns its name, extension, and user
  *     requestBody:
  *       required: true
  *       content:
@@ -20,6 +22,8 @@ const router = express.Router()
  *               file:
  *                 type: string
  *                 format: binary
+ *               user:
+ *                 type: string
  *     responses:
  *       200:
  *         description: File processed successfully
@@ -31,6 +35,8 @@ const router = express.Router()
  *                 filename:
  *                   type: string
  *                 extension:
+ *                   type: string
+ *                 user:
  *                   type: string
  *       400:
  *         description: No file uploaded

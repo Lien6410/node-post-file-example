@@ -1,10 +1,19 @@
 import express from 'express'
+import cors from 'cors'
 import swaggerUi from 'swagger-ui-express'
 import { fileUploadRouter } from './routes/fileUpload.js'
 import { specs } from './config/swagger.js'
 
 const app = express()
 const PORT = 3000
+
+// Enable CORS for all origins and methods
+app.use(
+  cors({
+    origin: '*',
+    methods: '*',
+  })
+)
 
 // Serve static files from public directory
 app.use(express.static('public'))
